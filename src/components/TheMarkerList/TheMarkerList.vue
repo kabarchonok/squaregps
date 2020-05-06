@@ -35,8 +35,4 @@ export default {
   font-size: 1.25rem;
   padding: $gap * 2;
 }
-
-.MarkerList__items {
-  padding: $gap * 2;
-}
 </style>
