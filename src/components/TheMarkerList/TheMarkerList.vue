@@ -29,10 +29,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.MarkerList {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .MarkerList__header {
   background-color: $blue;
   color: white;
   font-size: 1.25rem;
   padding: $gap * 2;
+}
+
+.MarkerList__items {
+  overflow-y: auto;
 }
 </style>
