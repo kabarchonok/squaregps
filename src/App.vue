@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TheMarkerList class="MarkerList" />
+    <TheMap class="Map" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheMarkerList from './components/TheMarkerList'
+import TheMap from './components/TheMap'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TheMap,
+    TheMarkerList
   }
 }
 </script>
-
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100%;
+}
+
+.MarkerList {
+  grid-column: 1;
+}
+
+.Map {
+  grid-column: 2;
 }
 </style>
