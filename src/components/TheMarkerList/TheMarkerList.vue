@@ -8,6 +8,7 @@
         v-for="(item, index) in items"
         :key="index"
         v-bind="item"
+        @click.native="onClick(item)"
       />
     </div>
   </div>
@@ -23,6 +24,11 @@ export default {
     items: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    onClick (event) {
+      return this.$emit('click', event)
     }
   }
 }
