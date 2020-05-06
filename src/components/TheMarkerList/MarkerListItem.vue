@@ -4,12 +4,12 @@
       {{ name }}
     </div>
     <div class="MarkerListItem__coords">
-      <div class="MarkerListItem__coordsItem">
-        {{ lat }}
-      </div>
-      <div class="MarkerListItem__coordsItem">
-        {{ lng }}
-      </div>
+      <span class="MarkerListItem__coordsItem">
+        {{ round(lat) }}
+      </span>
+      <span class="MarkerListItem__coordsItem">
+        {{ round(lat) }}
+      </span>
     </div>
   </div>
 </template>
@@ -30,12 +30,29 @@ export default {
       type: Number,
       default: 0
     }
+  },
+  methods: {
+    round (val) {
+      return val.toFixed(5)
+    }
   }
 }
 </script>
 
-<style lang="scss">
-.MarkerList__header {
-  position: relative;
+<style scoped lang="scss">
+.MarkerListItem {
+  color: $black;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: $gap * 2;
+
+  &:hover {
+    background-color: $grayLight;
+  }
+}
+
+.MarkerListItem__coords {
+  color: $gray;
+  font-size: .75rem;
 }
 </style>
