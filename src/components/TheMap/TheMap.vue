@@ -7,17 +7,32 @@
       <LTileLayer
         :url="url"
       />
+      <LMarker
+        v-for="(marker, index) in markers"
+        :key="index"
+        :lat-lng="setLatLng(marker.lat, marker.lng)"
+      />
     </LMap>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer } from 'vue2-leaflet'
+import { latLng, Icon } from 'leaflet'
+import { LMap, LMarker, LTileLayer } from 'vue2-leaflet'
+
+delete Icon.Default.prototype._getIconUrl
+
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
 
 export default {
   name: 'TheMap',
   components: {
     LMap,
+    LMarker,
     LTileLayer
   },
   props: {
@@ -28,6 +43,10 @@ export default {
     latlng: {
       type: Object,
       required: true
+    },
+    markers: {
+      type: Array,
+      default: () => []
     }
   },
   watch: {
@@ -39,6 +58,9 @@ export default {
     this.setView(this.latlng)
   },
   methods: {
+    setLatLng (lat, lng) {
+      return latLng(lat, lng)
+    },
     setView (latlng) {
       this.$nextTick(() => {
         this.$refs.map.mapObject.setView([latlng.lat, latlng.lng], 13)
