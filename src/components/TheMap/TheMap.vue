@@ -1,13 +1,14 @@
 <template>
-  <LMap
-    ref="map"
-    class="Map"
-    @click="onclick"
-  >
-    <LTileLayer
-      :url="url"
-    />
-  </LMap>
+  <div>
+    <LMap
+      ref="map"
+      @click="onclick"
+    >
+      <LTileLayer
+        :url="url"
+      />
+    </LMap>
+  </div>
 </template>
 
 <script>
@@ -19,19 +20,32 @@ export default {
     LMap,
     LTileLayer
   },
-  data () {
-    return {
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+  props: {
+    url: {
+      type: String,
+      required: true
+    },
+    latlng: {
+      type: Object,
+      required: true
+    }
+  },
+  watch: {
+    latlng (val) {
+      this.setView(val)
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      this.$refs.map.mapObject.setView([56.833333, 60.583333], 13)
-    })
+    this.setView(this.latlng)
   },
   methods: {
+    setView (latlng) {
+      this.$nextTick(() => {
+        this.$refs.map.mapObject.setView([latlng.lat, latlng.lng], 13)
+      })
+    },
     onclick (event) {
-      console.log()
+      this.$emit('click', event)
     }
   }
 }
