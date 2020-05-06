@@ -1,7 +1,15 @@
 <template>
   <div id="app">
-    <TheMarkerList class="MarkerList" />
-    <TheMap class="Map" />
+    <TheMarkerList
+      class="MarkerList"
+      :items="markets"
+    />
+    <TheMap
+      class="Map"
+      :url="url"
+      :latlng="latlng"
+      @click="onClick"
+    />
   </div>
 </template>
 
@@ -14,6 +22,28 @@ export default {
   components: {
     TheMap,
     TheMarkerList
+  },
+  data () {
+    return {
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      latlng: {
+        lat: 56.833333,
+        lng: 60.583333
+      },
+      markets: []
+    }
+  },
+  methods: {
+    setMarket (latlng) {
+      this.markets.push({
+        name: 'Маркер',
+        lat: latlng.lat,
+        lng: latlng.lng
+      })
+    },
+    onClick (event) {
+      this.setMarket(event.latlng)
+    }
   }
 }
 </script>
