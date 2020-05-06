@@ -18,6 +18,21 @@ export default {
 }
 </script>
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+html, body {
+  height: 100%;
+}
+
 #app {
   display: grid;
   grid-template-columns: 1fr 4fr;
