@@ -2,12 +2,14 @@
   <div id="app">
     <TheMarkerList
       class="MarkerList"
-      :items="markets"
+      :items="markers"
+      @click="changeView"
     />
     <TheMap
       class="Map"
       :url="url"
       :latlng="latlng"
+      :markers="markers"
       @click="onClick"
     />
   </div>
@@ -30,12 +32,12 @@ export default {
         lat: 56.833333,
         lng: 60.583333
       },
-      markets: []
+      markers: []
     }
   },
   methods: {
     setMarket (latlng) {
-      this.markets.push({
+      this.markers.push({
         name: 'Маркер',
         lat: latlng.lat,
         lng: latlng.lng
@@ -43,6 +45,12 @@ export default {
     },
     onClick (event) {
       this.setMarket(event.latlng)
+    },
+    changeView (event) {
+      this.latlng = {
+        lat: event.lat,
+        lng: event.lng
+      }
     }
   }
 }
