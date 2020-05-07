@@ -56,8 +56,6 @@ export default {
   },
   mounted () {
     this.setView(this.latlng)
-
-    this.$refs.map.mapObject.tap.enable()
   },
   methods: {
     setLatLng (lat, lng) {
