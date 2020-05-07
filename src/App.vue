@@ -19,6 +19,8 @@
 import TheMarkerList from './components/TheMarkerList'
 import TheMap from './components/TheMap'
 
+import Marker from './classes/Marker'
+
 export default {
   name: 'App',
   components: {
@@ -47,11 +49,7 @@ export default {
   },
   methods: {
     setMarket (latlng) {
-      this.markers.push({
-        name: 'marker',
-        lat: latlng.lat,
-        lng: latlng.lng
-      })
+      this.markers.push(new Marker(latlng.lat, latlng.lng))
     },
     onClick (event) {
       this.setMarket(event.latlng)

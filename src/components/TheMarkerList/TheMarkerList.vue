@@ -10,7 +10,7 @@
       <MarkerListItem
         v-for="(item, index) in items"
         :key="index"
-        v-bind="item"
+        :item="item"
         @click.native="onClick(item)"
       />
     </div>
@@ -67,7 +67,6 @@ export default {
   position: relative;
 
   &::after {
-    content: '';
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -104,6 +103,10 @@ export default {
   .MarkerList__header {
     text-align: center;
     font-size: 1.7rem;
+
+    &::after {
+      content: '';
+    }
   }
 
   .MarkerList_active {

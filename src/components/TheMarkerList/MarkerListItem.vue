@@ -1,34 +1,30 @@
 <template>
   <div class="MarkerListItem">
     <div class="MarkerListItem__name">
-      {{ $t(name) }}
+      {{ $t(item.name) }}
     </div>
     <div class="MarkerListItem__coords">
       <span class="MarkerListItem__coordsItem">
-        {{ round(lat) }}
+        {{ round(item.lat) }}
       </span>
       <span class="MarkerListItem__coordsItem">
-        {{ round(lat) }}
+        {{ round(item.lat) }}
       </span>
     </div>
   </div>
 </template>
 
 <script>
+import Marker from '../../classes/Marker'
+
 export default {
   name: 'MarkerListItem',
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    lat: {
-      type: Number,
-      default: 0
-    },
-    lng: {
-      type: Number,
-      default: 0
+    item: {
+      type: Marker,
+      default () {
+        return {}
+      }
     }
   },
   methods: {
