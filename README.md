@@ -1,4 +1,4 @@
-# squaregps
+# SquareGPS
 
 ## Project setup
 ```
