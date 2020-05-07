@@ -38,7 +38,7 @@ export default {
   methods: {
     setMarket (latlng) {
       this.markers.push({
-        name: 'Маркер',
+        name: 'marker',
         lat: latlng.lat,
         lng: latlng.lng
       })

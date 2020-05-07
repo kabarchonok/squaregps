@@ -1,7 +1,7 @@
 <template>
   <div class="MarkerListItem">
     <div class="MarkerListItem__name">
-      {{ name }}
+      {{ $t(name) }}
     </div>
     <div class="MarkerListItem__coords">
       <span class="MarkerListItem__coordsItem">

@@ -4,7 +4,7 @@
       class="MarkerList__header"
       @click="active = !active"
     >
-      Маркеры
+      {{ $t("markers") }}
     </div>
     <div class="MarkerList__items">
       <MarkerListItem
