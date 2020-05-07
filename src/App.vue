@@ -35,6 +35,16 @@ export default {
       markers: []
     }
   },
+  mounted () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        this.latlng = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude
+        }
+      })
+    }
+  },
   methods: {
     setMarket (latlng) {
       this.markers.push({
