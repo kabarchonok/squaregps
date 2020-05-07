@@ -1,6 +1,9 @@
 <template>
-  <div class="MarkerList">
-    <div class="MarkerList__header">
+  <div :class="cls">
+    <div
+      class="MarkerList__header"
+      @click="active = !active"
+    >
       Маркеры
     </div>
     <div class="MarkerList__items">
@@ -26,8 +29,22 @@ export default {
       default: () => []
     }
   },
+  data () {
+    return {
+      active: false
+    }
+  },
+  computed: {
+    cls () {
+      return {
+        MarkerList: true,
+        MarkerList_active: this.active
+      }
+    }
+  },
   methods: {
     onClick (event) {
+      this.active = false
       return this.$emit('click', event)
     }
   }
@@ -39,6 +56,7 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: white;
 }
 
 .MarkerList__header {
@@ -50,5 +68,25 @@ export default {
 
 .MarkerList__items {
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .MarkerList {
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc( 100% - 58px ));
+    transition: transform .3s;
+    z-index: 1000000;
+
+    &_active {
+      transform: translateY(0);
+    }
+  }
+
+  .MarkerList__header {
+    text-align: center;
+  }
 }
 </style>

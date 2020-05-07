@@ -73,15 +73,35 @@ html, body {
 
 #app {
   display: grid;
-  grid-template-columns: 1fr 4fr;
   height: 100%;
+  width: 100%;
 }
 
-.MarkerList {
-  grid-column: 1;
+@media (max-width: 768px) {
+  #app {
+    grid-template-rows: 1fr;
+  }
+
+  .MarkerList {
+    grid-row: 1;
+  }
+
+  .Map {
+    grid-row: 1;
+  }
 }
 
-.Map {
-  grid-column: 2;
+@media (min-width: 769px) {
+  #app {
+    grid-template-columns: 240px 4fr;
+  }
+
+  .MarkerList {
+    grid-column: 1;
+  }
+
+  .Map {
+    grid-column: 2;
+  }
 }
 </style>
