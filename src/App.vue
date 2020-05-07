@@ -77,7 +77,7 @@ html, body {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #app {
     grid-template-rows: 1fr;
   }
@@ -91,7 +91,7 @@ html, body {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   #app {
     grid-template-columns: 240px 4fr;
   }

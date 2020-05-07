@@ -42,17 +42,21 @@ export default {
 <style scoped lang="scss">
 .MarkerListItem {
   color: $black;
-  font-size: 1.25rem;
+  font-size: 1.7rem;
   cursor: pointer;
   padding: $gap * 2;
 
   &:hover {
     background-color: $grayLight;
   }
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 }
 
 .MarkerListItem__coords {
   color: $gray;
-  font-size: .75rem;
+  font-size: .6em;
 }
 </style>
