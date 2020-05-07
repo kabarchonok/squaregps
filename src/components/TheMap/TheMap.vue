@@ -11,6 +11,7 @@
         v-for="(marker, index) in markers"
         :key="index"
         :lat-lng="setLatLng(marker.lat, marker.lng)"
+        @click="$event.originalEvent.preventDefault()"
       />
     </LMap>
   </div>
