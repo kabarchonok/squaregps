@@ -1,5 +1,7 @@
 # SquareGPS
 
+![Preview](preview.png)
+
 ## Project setup
 ```
 yarn install
